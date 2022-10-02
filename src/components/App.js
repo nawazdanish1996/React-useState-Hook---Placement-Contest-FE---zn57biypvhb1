@@ -9,7 +9,7 @@ export default function App() {
 
  const buttonClick = () =>{
     setInput([...input, text]);
-    setInput("");
+    setText("");
  }
  
   return (
@@ -17,18 +17,17 @@ export default function App() {
   <input id='input' value={text} onChange={(e)=> setText(e.target.value)} />
   
       <p id='intro'>Concated String</p>
-      <p id='text'>{text} </p>
+      {
+        input.map((val, ind)=>{
+          return(
+            <p id='text'>{val}</p>
+          )
+        })
+      }
       <button id='button' onClick={buttonClick}>
         Click me
       </button>
 
-      {
-        input.map((val, ind)=>{
-          return(
-            <p>{val}</p>
-          )
-        })
-      }
     </div>
   );
 }
