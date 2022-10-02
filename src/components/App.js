@@ -11,11 +11,10 @@ export default function App() {
     setInput([...input, text]);
     setInput("");
  }
-
  
   return (
     <div>
-  <input id='input' value={inputValue} onChange={changeInput} />
+  <input id='input' value={text} onChange={(e)=> setText(e.target.value)} />
   
       <p id='intro'>Concated String</p>
       <p id='text'>{text} </p>
