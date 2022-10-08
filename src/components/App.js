@@ -4,29 +4,21 @@ import React, { useState } from 'react';
 
 export default function App() {
  //code here 
+ const [inputValue, setInputValue] = useState("");
  const [text, setText] = useState("");
- const [input, setInput] = useState([]);
 
  const buttonClick = () =>{
-    setInput([...input, text]);
-    setText("");
+    setText(text+inputValue);
+    setInputValue("");
  }
  
   return (
     <div>
-  <input id='input' value={text} onChange={(e)=> setText(e.target.value)} />
+  <input id='input' value={inputValue} onChange={(e)=> setInputValue(e.target.value)} />
   
       <p id='intro'>Concated String</p>
-      {
-        input.map((val, ind)=>{
-          return(
-            <p id='text'>{val}</p>
-          )
-        })
-      }
-      <button id='button' onClick={buttonClick}>
-        Click me
-      </button>
+      <p id='text'>{text}</p>
+      <button id='button' onClick={buttonClick}>Click me</button>
 
     </div>
   );
